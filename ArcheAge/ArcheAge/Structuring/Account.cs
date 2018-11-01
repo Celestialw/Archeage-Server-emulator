@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using ArcheAge.ArcheAge.Holders;
-using ArcheAge.ArcheAge.Network.Connections;
+﻿using ArcheAge.ArcheAge.Network.Connections;
+using System;
 
 namespace ArcheAge.ArcheAge.Structuring
 {

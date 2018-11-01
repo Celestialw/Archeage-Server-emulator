@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using LocalCommons.UID;
-using LocalCommons.Utilities;
+﻿using LocalCommons.Utilities;
 using LocalCommons.World;
 
 namespace ArcheAge.ArcheAge.Structuring

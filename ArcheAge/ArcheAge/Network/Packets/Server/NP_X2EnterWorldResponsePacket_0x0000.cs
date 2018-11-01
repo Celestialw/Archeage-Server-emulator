@@ -1,6 +1,6 @@
-﻿using LocalCommons.Network;
+﻿using LocalCommons.Cookie;
+using LocalCommons.Network;
 using System;
-using LocalCommons.Cookie;
 
 namespace ArcheAge.ArcheAge.Network
 {

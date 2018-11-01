@@ -1,12 +1,10 @@
 ﻿using ArcheAge.ArcheAge.Structuring;
 using ArcheAge.Properties;
 using LocalCommons.Logging;
-using LocalCommons.Utilities;
 using LocalCommons.World;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace ArcheAge.ArcheAge.Holders
 {

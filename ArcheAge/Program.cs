@@ -1,17 +1,14 @@
-﻿using ArcheAge.ArcheAge.Network;
+﻿using ArcheAge.ArcheAge.Holders;
+using ArcheAge.ArcheAge.Network;
 using ArcheAge.ArcheAge.Network.Connections;
 using ArcheAge.Properties;
 using LocalCommons.Logging;
 using LocalCommons.Network;
+using LocalCommons.UID;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using LocalCommons.UID;
-using ArcheAge.ArcheAge.Holders;
 
 namespace ArcheAge
 {

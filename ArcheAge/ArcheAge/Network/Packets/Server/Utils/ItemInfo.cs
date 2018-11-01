@@ -1,8 +1,4 @@
-﻿using ArcheAge.ArcheAge.Holders;
-using ArcheAge.ArcheAge.Network.Connections;
-using ArcheAge.ArcheAge.Structuring;
-using LocalCommons.Network;
-using System.Collections.Generic;
+﻿using LocalCommons.Network;
 
 namespace ArcheAge.ArcheAge.Network.Packets.Server.Utils
 {

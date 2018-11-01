@@ -1,5 +1,5 @@
-﻿using ArcheAge.Properties;
-using ArcheAge.ArcheAge.Structuring;
+﻿using ArcheAge.ArcheAge.Structuring;
+using ArcheAge.Properties;
 using LocalCommons.Logging;
 using MySql.Data.MySqlClient;
 using System;

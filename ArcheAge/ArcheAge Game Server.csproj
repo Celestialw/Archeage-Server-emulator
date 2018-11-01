@@ -58,16 +58,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build.Tasks.v4.0" />
-    <Reference Include="mysql.data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LocalCommons\bin\Debug\mysql.data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.13\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework" />
-    <Reference Include="protobuf-net">
-      <HintPath>..\LocalCommons\bin\Debug\protobuf-net.dll</HintPath>
+    <Reference Include="protobuf-net, Version=2.4.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>..\packages\protobuf-net.2.4.0\lib\net40\protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,6 +93,7 @@
     <Compile Include="ArcheAge\Network\Packets\Client\NP_CSHSResponsePacket_0x0110.cs" />
     <Compile Include="ArcheAge\Network\Packets\Client\NP_CSMoveUnitPacket_0x0088.cs" />
     <Compile Include="ArcheAge\Network\Packets\Client\NP_CSSetLpManageCharacter_0x00FB.cs" />
+    <Compile Include="ArcheAge\Network\Packets\Server\NP_CSAddFriendPacket_0x0101.cs" />
     <Compile Include="ArcheAge\Network\Packets\Server\NP_DetailedTimeOfDayPacket_0x00EA.cs" />
     <Compile Include="ArcheAge\Network\Packets\Server\NP_SCAiDebugPacket_0x01B8.cs" />
     <Compile Include="ArcheAge\Network\Packets\Server\NP_SCCharacterInvenInitPacket_0x0046.cs" />
@@ -159,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

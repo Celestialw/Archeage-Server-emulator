@@ -1,15 +1,14 @@
-﻿using System;
-using ArcheAge.ArcheAge.Holders;
+﻿using ArcheAge.ArcheAge.Holders;
 using ArcheAge.ArcheAge.Network.Connections;
 using ArcheAge.ArcheAge.Network.Packets.Server;
 using ArcheAge.ArcheAge.Structuring;
 using LocalCommons.Logging;
 using LocalCommons.Network;
 using LocalCommons.Utilities;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using LocalCommons.World;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ArcheAge.ArcheAge.Network
 {
