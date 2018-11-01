@@ -93,6 +93,7 @@
     <Compile Include="ArcheAge\Network\Packets\Client\NP_CSHSResponsePacket_0x0110.cs" />
     <Compile Include="ArcheAge\Network\Packets\Client\NP_CSMoveUnitPacket_0x0088.cs" />
     <Compile Include="ArcheAge\Network\Packets\Client\NP_CSSetLpManageCharacter_0x00FB.cs" />
+    <Compile Include="ArcheAge\Network\Packets\Server\NP_SCSayPacket_0x0061.cs" />
     <Compile Include="ArcheAge\Network\Packets\Server\NP_CSAddFriendPacket_0x0101.cs" />
     <Compile Include="ArcheAge\Network\Packets\Server\NP_DetailedTimeOfDayPacket_0x00EA.cs" />
     <Compile Include="ArcheAge\Network\Packets\Server\NP_SCAiDebugPacket_0x01B8.cs" />

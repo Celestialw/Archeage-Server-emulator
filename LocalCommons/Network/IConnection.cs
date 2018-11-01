@@ -263,7 +263,7 @@ namespace LocalCommons.Network
                     }
 
                     //не выводим Ping
-                    if (data[2] != 0x12)
+                    if ((data[2] != 0x12) && !(data[1]==0x01 && data[2]==0x88 && data[3]== 0x00))
                     {
                         Console.ForegroundColor = ConsoleColor.DarkGray;
                         Logger.Trace(builder.ToString());

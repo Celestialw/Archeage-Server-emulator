@@ -110,6 +110,9 @@ namespace ArcheAge.ArcheAge.Network
                     Register(0x01, 0x0023, OnPacketReceive_0x01_CSDeleteCharacter_0x0023);
                     Register(0x01, 0x0027, OnPacketReceive_0x01_CSNotifyInGame_0x0027);
                     Register(0x01, 0x0088, OnPacketReceive_0x01_NP_CSMoveUnitPacket_0x0088);
+
+                    Register(0x01, 0x0061, OnPacketReceive_0x01_NP_CSSayPacket_0x0061);//收到客户机信息
+
                     Register(0x01, 0x0101, OnPacketReceive_0x01_CSAddFriend_0x0101);
                     //02
                     Register(0x02, 0x0001, (net, reader) => OnPacketReceive_0x02_FinishState_0x0001(_clientVersion, net, reader)); //02, 03, 09, 10, 11, 12, 14, 15
@@ -251,6 +254,24 @@ namespace ArcheAge.ArcheAge.Network
             net.CurrentAccount.Character.Heading = new Direction(rotx, roty, rotz); //сохраним направление взгляда
 
             CharacterHolder.InsertOrUpdate(net.CurrentAccount.Character); //записываем в базу character_records
+        }
+
+        /// <summary>
+        /// 1.1406 recv 16 00 00 01 61 00 00 00 00 00 00 00 00 00 00 00 01 00 31 09 00 00 00 00
+        /// 3.0.3.0 send 2d00dd055ed5c000d2a2724212e3b3832963f4c6fd66340fdd30754516e2b6c7244395c697414010e0b09176c1f020
+        /// 2d00dd05CFB4F10100000000000000007A4000026902000A0895000000040041736462010031000000001027000000
+        /// </summary>
+        /// <param name="net"></param>
+        /// <param name="reader"></param>
+        private static void OnPacketReceive_0x01_NP_CSSayPacket_0x0061(ClientConnection net,PacketReader reader)
+        {
+            reader.Offset += 10;
+            short msgLen = reader.ReadInt16();
+            string msg = reader.ReadUTF8StringSafe(msgLen);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Logger.Trace(net.CurrentAccount.Name+":"+msg);
+            Console.ResetColor();
+            //net.SendAsync(new NP_SCSayPacket_0x0061(net,"test"));
         }
 
         public static void OnPacketReceive_0x01_CSAddFriend_0x0101(ClientConnection net, PacketReader reader)
