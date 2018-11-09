@@ -50,15 +50,15 @@ namespace ArcheAge.ArcheAge.Network.Packets.Server
                     ns.Write((byte)chr.CharRace); //CharRace c
                     ns.Write((byte)chr.CharGender); //CharGender c
                     ns.Write((byte)chr.Level); //level c
-                    ns.Write((int)0x001C4); //health d
-                    ns.Write((int)0x001CE); //mana d
+                    ns.Write((int)0x00); //health d
+                    ns.Write((int)0x00); //mana d
                     ns.Write((int)chr.StartingZoneId); //zid d
                     ns.Write((int)chr.FactionId); //faction_id d
-                    string factionName = ""; //factionName SS
+                    string factionName = "DG1298"; //factionName SS
                     ns.WriteUTF8Fixed(factionName, factionName.Length);
                     //-----------------------------
-                    ns.Write((int)0x00); //type d
-                    ns.Write((int)0x00); //family d
+                    ns.Write((int)0x01); //type d
+                    ns.Write((int)0x01); //family d
                     //<!--  same as in character packets --> 
                     /*
                     * инвентарь персонажа
@@ -90,8 +90,8 @@ namespace ArcheAge.ArcheAge.Network.Packets.Server
                     ns.Write((long)0x532B300C); //rezTime Q
                     ns.Write((int)0x00); //rezPenaltyDuration d
                     ns.Write((long)0x532F41B4); //lastWorldLeaveTime Q
-                    ns.Write((long)0xC2); //moneyAmount Q  Number of copper coins Automatic 1:100:10000 Convert gold coins  //серебро, золото и платина (начало)
-                    ns.Write((long)0x00); //moneyAmount Q //серебро, золото и платина (продолжение)
+                    ns.Write((long)0xFAC2); //moneyAmount Q  Number of copper coins Automatic 1:100:10000 Convert gold coins  //серебро, золото и платина (начало)
+                    ns.Write((long)0xFACA); //moneyAmount Q //серебро, золото и платина (продолжение)
                     ns.Write((short)0x00); //crimePoint h
                     ns.Write((int)0x00); //crimeRecord d
                     ns.Write((short)0x00); //crimeScore h

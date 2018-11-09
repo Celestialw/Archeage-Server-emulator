@@ -66,15 +66,15 @@ namespace ArcheAge.ArcheAge.Network
             ns.Write((byte)net.CurrentAccount.Character.CharRace); //CharRace c
             ns.Write((byte)net.CurrentAccount.Character.CharGender); //CharGender c
             ns.Write((byte)net.CurrentAccount.Character.Level); //level c
-            ns.Write((int)0x001C4); //health d
-            ns.Write((int)0x001CE); //mana d
+            ns.Write((int)0x01010101); //health d
+            ns.Write((int)0x01010101); //mana d
             ns.Write((int)net.CurrentAccount.Character.StartingZoneId); //zid d
             ns.Write((int)net.CurrentAccount.Character.FactionId); //faction_id d
-            string factionName = ""; //factionName SS
+            string factionName = "DG1298"; //factionName SS
             ns.WriteUTF8Fixed(factionName, factionName.Length);
             //-----------------------------
-            ns.Write((int)0x00); //type d
-            ns.Write((int)0x00); //family d
+            ns.Write((int)0x01); //type d
+            ns.Write((int)0x01); //family d
             //<!--  same as in character packets --> 
             /*
             * инвентарь персонажа
@@ -98,28 +98,28 @@ namespace ArcheAge.ArcheAge.Network
             CharacterInfo.WriteStaticData(net, net.CurrentAccount.Character);
             //<!--  same as in character packets (2) ends --> 
 
-            ns.Write((short)0x36); //laborPower h  //очки работы = 5000
+            ns.Write((short)0x352); //laborPower h  //очки работы = 5000
             ns.Write((long)0x532F427F); //lastLaborPowerModified Q
             ns.Write((short)0x00); //deadCount h
             ns.Write((long)0x532B300C); //deadTime Q
-            ns.Write((int)0x00); //rezWaitDuration d
+            ns.Write((int)0xff); //rezWaitDuration d
             ns.Write((long)0x532B300C); //rezTime Q
             ns.Write((int)0x00); //rezPenaltyDuration d
             ns.Write((long)0x532F41B4); //lastWorldLeaveTime Q
-            ns.Write((long)0xC2); //moneyAmount Q  Number of copper coins Automatic 1:100:10000 Convert gold coins  //серебро, золото и платина (начало)
-            ns.Write((long)0x00); //moneyAmount Q //серебро, золото и платина (продолжение)
+            ns.Write((long)0xFC2); //moneyAmount Q  Number of copper coins Automatic 1:100:10000 Convert gold coins  //серебро, золото и платина (начало)
+            ns.Write((long)0xFA); //moneyAmount Q //серебро, золото и платина (продолжение)
             ns.Write((short)0x00); //crimePoint h
-            ns.Write((int)0x00); //crimeRecord d
+            ns.Write((int)0x01); //crimeRecord d
             ns.Write((short)0x00); //crimeScore h
             ns.Write((long)0x00); //deleteRequestedTime Q
             ns.Write((long)0x00); //transferRequestedTime Q
             ns.Write((long)0x00); //deleteDelay Q
             //ns.Write((int) 0x07); //consumedLp d
             ns.Write((long)0x1E); //bmPoint Q  //монеты дару = 30
-            ns.Write((int)0x00); //consumedLp d ?
-            ns.Write((int)0x00); //? пришлось вставить для выравнивания длины пакета
-            ns.Write((long)0x00); //moneyAmount Q
-            ns.Write((long)0x00); //moneyAmount Q
+            ns.Write((int)0x07); //consumedLp d ?
+            ns.Write((int)0x07); //? пришлось вставить для выравнивания длины пакета
+            ns.Write((long)0x01); //moneyAmount Q
+            ns.Write((long)0x02); //moneyAmount Q
             ns.Write((byte)0x00); //autoUseAApoint A"
             ns.Write((int)0x00); //point d
             ns.Write((int)0x00); //gift d
@@ -133,55 +133,55 @@ namespace ArcheAge.ArcheAge.Network
             ns.WriteHex("DBFB17C0"); //angles[2] f
             //-------------------------------------
             //DBFB17C0
-            ns.Write((int)0x0C17FBDB); //exp d
+            ns.Write((int)0x64); //exp d
             //92070000
-            ns.Write((int)0x0792); //recoverableExp d
+            ns.Write((int)0x0792); //recoverableExp d //可恢复经验
             //00000000
-            ns.Write((int)0x00); //returnDistrictId d
+            ns.Write((int)0x00); //returnDistrictId d //绑定点
             //00000000
-            ns.Write((int)0x00); //returnDistrict d
+            ns.Write((int)0x00); //returnDistrict d //绑定点
             //56010000
-            ns.Write((int)0x0156); //resurrectionDistrict d
+            ns.Write((int)0x0156); //resurrectionDistrict d//复活点
             //46000000
             ns.Write((int)0x46); //abilityExp[0] d
             //00000000
-            ns.Write((int)0x00); //abilityExp[1] d
+            ns.Write((int)0x46); //abilityExp[1] d
             //00000000
-            ns.Write((int)0x00); //abilityExp[2] d
+            ns.Write((int)0x46); //abilityExp[2] d
             //00000000
-            ns.Write((int)0x00); //abilityExp[3] d
+            ns.Write((int)0x46); //abilityExp[3] d
             //00000000
-            ns.Write((int)0x00); //abilityExp[4] d
+            ns.Write((int)0x46); //abilityExp[4] d
             //00000000
-            ns.Write((int)0x00); //abilityExp[5] d
+            ns.Write((int)0x46); //abilityExp[5] d
             //00000000
-            ns.Write((int)0x00); //abilityExp[6] d
+            ns.Write((int)0x46); //abilityExp[6] d
             //00000000
-            ns.Write((int)0x00); //abilityExp[7] d
+            ns.Write((int)0x46); //abilityExp[7] d
             //92070000
-            ns.Write((int)0x0792); //abilityExp[8] d
+            ns.Write((int)0x0892); //abilityExp[8] d
             //00000000
-            ns.Write((int)0x00); //abilityExp[9] d
+            ns.Write((int)0x46); //abilityExp[9] d
             //00000000
-            ns.Write((int)0x00); //abilityExp[10] d
+            ns.Write((int)0x46); //abilityExp[10] d
             //00000000
-            ns.Write((int)0x00); //unreadMail d
+            ns.Write((int)0x01); //unreadMail d
             //00000000
             ns.Write((int)0x00); //unreadMiaMail d
             //00000000
-            ns.Write((int)0x00); //unreadCommercialMail d
+            ns.Write((int)0x01); //unreadCommercialMail d
             //00000000
             ns.Write((byte)0x32); //numInvenSlots c
             //32
             ns.Write((short)0x0032); //numBankSlots h
             //3200
-            ns.Write((long)0xc2); //moneyAmount Q
+            ns.Write((long)0x164); //moneyAmount Q //背包金币
             //C200000000000000
-            ns.Write((long)0x00); //moneyAmount Q
+            ns.Write((long)0x64); //moneyAmount Q
             //0000000000000000
-            ns.Write((long)0x00); //moneyAmount Q
+            ns.Write((long)0x64); //moneyAmount Q
             //0000000000000000
-            ns.Write((long)0x00); //moneyAmount Q
+            ns.Write((long)0x64); //moneyAmount Q
             //0000000000000000
             ns.Write((byte)0x00); //autoUseAAPoint C
             //00

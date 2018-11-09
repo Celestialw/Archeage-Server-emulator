@@ -109,10 +109,11 @@ namespace ArcheAge.ArcheAge.Network
                     Register(0x01, 0x0021, OnPacketReceive_0x01_CSCreateCharacter_0x0021);
                     Register(0x01, 0x0023, OnPacketReceive_0x01_CSDeleteCharacter_0x0023);
                     Register(0x01, 0x0027, OnPacketReceive_0x01_CSNotifyInGame_0x0027);
+                    Register(0x01, 0x0028, OnPacketReceive_0x01_NP_CSCancelPacket_0x00f2);
                     Register(0x01, 0x0088, OnPacketReceive_0x01_NP_CSMoveUnitPacket_0x0088);
 
-                    Register(0x01, 0x0061, OnPacketReceive_0x01_NP_CSSayPacket_0x0061);//收到客户机信息
-
+                    Register(0x01, 0x0061, OnPacketReceive_0x01_NP_CSChatPacket_0x0061);//收到客户机信息
+                    //Register(0x01, 0x00f2, OnPacketReceive_0x01_NP_CSCancelPacket_0x00f2);//收到用于取消加载的信息 发送欢迎信息
                     Register(0x01, 0x0101, OnPacketReceive_0x01_CSAddFriend_0x0101);
                     //02
                     Register(0x02, 0x0001, (net, reader) => OnPacketReceive_0x02_FinishState_0x0001(_clientVersion, net, reader)); //02, 03, 09, 10, 11, 12, 14, 15
@@ -263,7 +264,7 @@ namespace ArcheAge.ArcheAge.Network
         /// </summary>
         /// <param name="net"></param>
         /// <param name="reader"></param>
-        private static void OnPacketReceive_0x01_NP_CSSayPacket_0x0061(ClientConnection net,PacketReader reader)
+        private static void OnPacketReceive_0x01_NP_CSChatPacket_0x0061(ClientConnection net,PacketReader reader)
         {
             reader.Offset += 10;
             short msgLen = reader.ReadInt16();
@@ -271,7 +272,19 @@ namespace ArcheAge.ArcheAge.Network
             Console.ForegroundColor = ConsoleColor.Red;
             Logger.Trace(net.CurrentAccount.Name+":"+msg);
             Console.ResetColor();
+            //net.SendAsync(new NP_SCChatMessagePacket_0x00C6(net));
             //net.SendAsync(new NP_SCSayPacket_0x0061(net,"test"));
+
+            //SCChatMessagePacket
+            string msg1 = net.CurrentAccount.Name; //сообщений не видно =(
+            string msg2 = msg;
+            short chatId = 1; // /1 场景
+            net.SendAsync(new NP_SCChatMessagePacket_0x00C6(net, chatId, msg1, msg2));
+        }
+        private static void OnPacketReceive_0x01_NP_CSCancelPacket_0x00f2(ClientConnection net,PacketReader rader)
+        {
+            string welcome = "Welcome :"+net.CurrentAccount.Character.CharName+ "!\n This is a Private ArcheRage emulation server.\nI hope you have fun.";
+            net.SendAsync(new NP_SCChatMessagePacket_0x00C6(net, -2, "system", welcome));
         }
 
         public static void OnPacketReceive_0x01_CSAddFriend_0x0101(ClientConnection net, PacketReader reader)
